@@ -58,15 +58,15 @@ class TestAddContact(unittest.TestCase):
         # fill home
         wd.find_element_by_name("home").click()
         wd.find_element_by_name("home").clear()
-        wd.find_element_by_name("home").send_keys(contact.home)
+        wd.find_element_by_name("home").send_keys(contact.home_phone)
         # fill mobile
         wd.find_element_by_name("mobile").click()
         wd.find_element_by_name("mobile").clear()
-        wd.find_element_by_name("mobile").send_keys(contact.mobile)
+        wd.find_element_by_name("mobile").send_keys(contact.mobile_phone)
         # fill work
         wd.find_element_by_name("work").click()
         wd.find_element_by_name("work").clear()
-        wd.find_element_by_name("work").send_keys(contact.work)
+        wd.find_element_by_name("work").send_keys(contact.work_phone)
         # fill fax
         wd.find_element_by_name("fax").click()
         wd.find_element_by_name("fax").clear()
@@ -90,20 +90,16 @@ class TestAddContact(unittest.TestCase):
         # fill birthday
         wd.find_element_by_name("bday").click()
         Select(wd.find_element_by_name("bday")).select_by_visible_text(contact.bday)
-        wd.find_element_by_xpath(f"//option[@value='{contact.bday}']").click()
         wd.find_element_by_name("bmonth").click()
         Select(wd.find_element_by_name("bmonth")).select_by_visible_text(contact.bmonth)
-        wd.find_element_by_xpath(f"//option[@value='{contact.bmonth}']").click()
         wd.find_element_by_name("byear").click()
         wd.find_element_by_name("byear").clear()
         wd.find_element_by_name("byear").send_keys(contact.byear)
         # fill anniversary
         wd.find_element_by_name("aday").click()
         Select(wd.find_element_by_name("aday")).select_by_visible_text(contact.aday)
-        wd.find_element_by_xpath(f"//option[@value='{contact.aday}']").click()
         wd.find_element_by_name("amonth").click()
         Select(wd.find_element_by_name("amonth")).select_by_visible_text(contact.amonth)
-        wd.find_element_by_xpath(f"//option[@value='{contact.amonth}']").click()
         wd.find_element_by_name("ayear").click()
         wd.find_element_by_name("ayear").clear()
         wd.find_element_by_name("ayear").send_keys(contact.ayear)
@@ -135,8 +131,8 @@ class TestAddContact(unittest.TestCase):
         self.open_creation_contact_page(wd)
         self.creation_contact(wd, Contact(name="Semen1", midname="-", lastname="Vishnyakov",
                                           nickname="Antigon", title="boss", company="Stenn",
-                                          address="Moscow", home="3", mobile="9852064950",
-                                          work="QA", fax="-", email="semmmen8@gmail.com",
+                                          address="Moscow", home_phone="3", mobile_phone="9852064950",
+                                          work_phone="QA", fax="-", email="semmmen8@gmail.com",
                                           email2="-", email3="-", homepage="stenn.ru", bday="1", bmonth="January",
                                           byear="1996", aday="1", amonth="January", ayear="2021", address2="-",
                                           phone2="-", notes="-"))
@@ -155,7 +151,6 @@ class TestAddContact(unittest.TestCase):
     
     def tearDown(self):
         self.wd.quit()
-        self.assertEqual([], self.verificationErrors)
 
 if __name__ == "__main__":
     unittest.main()

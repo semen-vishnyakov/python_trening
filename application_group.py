@@ -1,6 +1,6 @@
 from selenium import webdriver
 
-class Application:
+class Application_group:
 
     def __init__(self):
         self.wd = webdriver.Firefox()

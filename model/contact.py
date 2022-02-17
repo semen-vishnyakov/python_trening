@@ -1,3 +1,5 @@
+from sys import maxsize
+
 class Contact:
 
     def __init__(self, name=None, midname=None, lastname=None, nickname=None, title=None, company=None, address=None,

@@ -94,7 +94,8 @@ class ContactHelper:
         self.open_contacts_page()
         contacts_list = []
         for element in wd.find_elements_by_xpath('//th[@class = "sortable fd-column-1"]/parent::tr/following::tr'):
-            text = element.text
             id = element.find_element_by_name("selected[]").get_attribute("value")
-            contacts_list.append(Contact(name = text, lastname = text, id = id))
+            lastname = element.find_element_by_xpath("td[2]").text
+            name = element.find_element_by_xpath("td[3]").text
+            contacts_list.append(Contact(name = name, lastname = lastname, id = id))
         return contacts_list
